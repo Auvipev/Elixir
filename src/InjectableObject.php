@@ -16,4 +16,15 @@ namespace Auvipev\Viper;
  */
 interface InjectableObject
 {
+
+    /**
+     * Inject any configuration or objct classes for this class.
+     *
+     * @param array $config The configuration.
+     *
+     * @return void Returns nothing.
+     *
+     * @codeCoverageIgnore.
+     */
+    public function __construct(array $config);
 }
