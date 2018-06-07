@@ -12,6 +12,11 @@ declare(strict_types=1);
 namespace Auvipev\Viper;
 
 /**
+ * The hasher class.
+ *
+ * @link <https://secure.php.net/manual/en/function.hash-equals.php>.
+ * @link <https://secure.php.net/manual/en/ref.password.php>.
+ *
  * @interface HasherInterface.
  */
 interface HasherInterface
