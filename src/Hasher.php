@@ -85,17 +85,26 @@ class Hasher extends Engine implements HasherInterface, InjectableObject
      * a maximum length of 72 characters.
      *
      * @param string $password The user's password.
+     * @param array  $options  Alternative options to use.
      *
      * @return mixed Returns the hashed password, or FALSE on failure.
      *
      * @codeCoverageIgnore.
      */
-    public function hashPassword(string $password)
+    public function hashPassword(string $password, array $options = array()
     {
+        $password = rtrim(ltrim($password));
+        if (empty($options)) {
+            return password_hash(
+                $password,
+                $config['password_hash']['algo'],
+                $config['password_hash']['options']
+            );
+        }
         return password_hash(
-            rtrim(ltrim($password)),
-            $config['password_hash']['algo'],
-            $config['password_hash']['options']
+            $password,
+            $options['algo'],
+            $options['options']
         );
     }
 
@@ -129,18 +138,26 @@ class Hasher extends Engine implements HasherInterface, InjectableObject
      * This function checks to see if the supplied hash implements the algorithm and options provided. If not,
      * it is assumed that the hash needs to be rehashed.
      *
-     * @param string $hash A hash created by $this->hashPassword().
+     * @param string $hash    A hash created by $this->hashPassword().
+     * @param array  $options Alternative options to use.
      *
      * @return bool Returns TRUE if the hash should be rehashed to match the given algo and options, or FALSE otherwise.
      *
      * @codeCoverageIgnore.
      */
-    public function doesNeedRehash(string $hash): bool
+    public function doesNeedRehash(string $hash, array $options = array()): bool
     {
+        if (empty($options)) {
+            return password_needs_rehash(
+                $hash,
+                $config['password_hash']['algo'],
+                $config['password_hash']['options']
+            );
+        }
         return password_needs_rehash(
             $hash,
-            $config['password_hash']['algo'],
-            $config['password_hash']['options']
+            $options['algo'],
+            $options['options']
         );
     }
 
