@@ -62,36 +62,49 @@ class Database extends Engine implements DatabaseInterface, InjectableObject
      *
      * @param array $options Alternative options to use.
      *
+     * @catches PDOException Prevents a backtrace from being displayed.
+     *
      * @return object Returns itself.
      */
     public function open(array $options = array()): object
     {
         if (empty($options)) {
+            try {
+                $this->connection = new PDO(
+                    $config['database']['dns'],
+                    isset($config['database']['username']) && $config['database']['username'] !== ''
+                        ? $config['database']['username']
+                        : null,
+                    isset($config['database']['password']) && $config['database']['password'] !== ''
+                        ? $config['database']['password']
+                        : null,
+                    isset($config['database']['options'])
+                        ? $config['database']['options']
+                        : array();
+                );
+            } catch (PDOException $e) {
+                print "VIPERError: " . $e->getMessage() . "<br/>";
+                die();
+            }
+            return $this;
+        }
+        try {
             $this->connection = new PDO(
-                $config['database']['dns'],
-                isset($config['database']['username']) && $config['database']['username'] !== ''
-                    ? $config['database']['username']
+                $options['dns'],
+                isset($options['username']) && $options['username'] !== ''
+                    ? $options['username']
                     : null,
-                isset($config['database']['password']) && $config['database']['password'] !== ''
-                    ? $config['database']['password']
+                isset($options['password']) && $options['password'] !== ''
+                    ? $options['password']
                     : null,
-                isset($config['database']['options'])
-                    ? $config['database']['options']
+                isset($options['options'])
+                    ? $options['options']
                     : array();
             );
+        } catch (PDOException $e) {
+            print "VIPERError: " . $e->getMessage() . "<br/>";
+            die();
         }
-        $this->connection = new PDO(
-            $options['dns'],
-            isset($options['username']) && $options['username'] !== ''
-                ? $options['username']
-                : null,
-            isset($options['password']) && $options['password'] !== ''
-                ? $options['password']
-                : null,
-            isset($options['options'])
-                ? $options['options']
-                : array();
-        );
         return $this;
     }
 }
