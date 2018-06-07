@@ -12,6 +12,8 @@ declare(strict_types=1);
 namespace Auvipev\Viper;
 
 /**
+ * States that an object can be injectable.
+ *
  * @interface InjectableObject.
  */
 interface InjectableObject
