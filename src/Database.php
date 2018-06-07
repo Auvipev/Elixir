@@ -20,6 +20,7 @@ use PDOException;
  * @link <https://secure.php.net/manual/en/language.types.resource.php>.
  * @link <https://secure.php.net/manual/en/book.pdo.php>.
  * @link <https://secure.php.net/manual/en/pdo.connections.php>.
+ * @link <https://secure.php.net/manual/en/pdo.prepared-statements.php>.
  *
  * @class      Database.
  * @extends    Engine.
@@ -106,5 +107,44 @@ class Database extends Engine implements DatabaseInterface, InjectableObject
             die();
         }
         return $this;
+    }
+
+    /**
+     * Process a new statement.
+     *
+     * Many of the more mature databases support the concept of prepared statements. What are they? They can be thought of as a kind of compiled
+     * template for the SQL that an application wants to run, that can be customized using variable parameters. Prepared statements offer
+     * two major benefits:
+     *
+     * - The query only needs to be parsed (or prepared) once, but can be executed multiple times with the same or different parameters. When the query
+     *   is prepared, the database will analyze, compile and optimize its plan for executing the query. For complex queries this process can take up 
+     *   enough time that it will noticeably slow down an application if there is a need to repeat the same query many times with different parameters.
+     *   By using a prepared statement the application avoids repeating the analyze/compile/optimize cycle. This means that prepared statements use
+     *   fewer resources and thus run faster.
+     *
+     * - The parameters to prepared statements don't need to be quoted; the driver automatically handles this. If an application exclusively uses
+     *   prepared statements, the developer can be sure that no SQL injection will occur (however, if other portions of the query are being built up
+     *   with unescaped input, SQL injection is still possible).
+     *
+     * @param string $sql      The sql statement to prepare.
+     * @param array  $bindings Any bindings to bind to the sql statement.
+     * @param array  $optins   Any additional options to use based on the statement passed.
+     *
+     * @return mixed Returns TRUE if the statement was processed and FALSE if it was not or it will return fetch data if your are selecting
+     *               any data.
+     */
+    public function processStatement(string $sql, array $bindings = array(), array $options = array())
+    {
+        $stmt = $this->connection->prepare($sql);
+        foreach ($bindings as $key => $value) {
+            $stmt->bindParam($key, $value);
+        }
+        if ($stmt->execute()) {
+            if ($options['alias'] === 'select') {
+                return $stmt->fetch($options['fetch_mode'])
+            }
+            return true;
+        }
+        return false;
     }
 }
