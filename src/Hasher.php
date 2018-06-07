@@ -28,6 +28,7 @@ use function hash_equals;
  * @class      Hasher.
  * @extends    Engine.
  * @implements HasherInterface.
+ * @implements InjectableObject.
  */
 class Hasher extends Engine implements HasherInterface, InjectableObject
 {
