@@ -14,6 +14,8 @@ namespace Auvipev\Viper;
 use PDO;
 use PDOException;
 
+use function die;
+
 /**
  * The database class.
  *
@@ -141,10 +143,54 @@ class Database extends Engine implements DatabaseInterface, InjectableObject
         }
         if ($stmt->execute()) {
             if ($options['alias'] === 'select') {
-                return $stmt->fetch($options['fetch_mode'])
+                return $stmt->fetchAll($options['fetch_mode'])
             }
             return true;
         }
         return false;
+    }
+
+    /**
+     * Start a new transaction.
+     *
+     * Transactions are typically implemented by "saving-up" your batch of changes to be applied all at once; this has the nice side effect of drastically improving
+     * the efficiency of those updates. In other words, transactions can make your scripts faster and potentially more robust (you still need to use them correctly
+     * to reap that benefit).
+     *
+     * @return void Returns nothing.
+     */
+    public function startTransaction(): void
+    {
+        $this->connection->beginTransaction();
+    }
+
+    /**
+     * Runs a transaction statement.
+     *
+     * @return void Returns nothing.
+     */
+    public function script(string $statement): void
+    {
+        $this->connection->exec($statement);
+    }
+
+    /**
+     * Commits a transaction.
+     *
+     * @return void Returns nothing.
+     */
+    public function commit(): void
+    {
+        $this->connection->commit();
+    }
+
+    /**
+     * Rollback a transaction.
+     *
+     * @return void Returns nothing.
+     */
+    public function rollBack(): void
+    {
+        $this->connection->rollBack();
     }
 }
