@@ -158,6 +158,8 @@ class Database extends Engine implements DatabaseInterface, InjectableObject
      * to reap that benefit).
      *
      * @return void Returns nothing.
+     *
+     * @codeCoverageIgnore.
      */
     public function startTransaction(): void
     {
@@ -167,7 +169,11 @@ class Database extends Engine implements DatabaseInterface, InjectableObject
     /**
      * Runs a transaction statement.
      *
+     * @param string $statement The transaction statement.
+     *
      * @return void Returns nothing.
+     *
+     * @codeCoverageIgnore.
      */
     public function script(string $statement): void
     {
@@ -178,6 +184,8 @@ class Database extends Engine implements DatabaseInterface, InjectableObject
      * Commits a transaction.
      *
      * @return void Returns nothing.
+     *
+     * @codeCoverageIgnore.
      */
     public function commit(): void
     {
@@ -188,6 +196,8 @@ class Database extends Engine implements DatabaseInterface, InjectableObject
      * Rollback a transaction.
      *
      * @return void Returns nothing.
+     *
+     * @codeCoverageIgnore.
      */
     public function rollBack(): void
     {
