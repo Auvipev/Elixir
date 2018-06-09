@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Auvipev\Viper;
 
 use PDO;
+use PDOStatement;
 use PDOException;
 
 use function die;
@@ -202,5 +203,19 @@ class Database extends Engine implements DatabaseInterface, InjectableObject
     public function rollBack(): void
     {
         $this->connection->rollBack();
+    }
+
+    /**
+     * Is the statement a PDO statement?
+     *
+     * @return Returns TRUE if the statement is a PDO statement and FALSE if it is not.
+     *
+     * @param mixed $statement The passed statement.
+     *
+     * @codeCoverageIgnore.
+     */
+    public function isPDOStatement($statement): bool
+    {
+        return $statement instanceof PDOStatement; 
     }
 }
