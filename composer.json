@@ -1,6 +1,7 @@
 {
     "name": "auvipev/elixir",
     "description": "Elixir: A guide to writing clean, secure, and reusable PHP code.",
+    "type": "project",
     "keywords": [
         "php",
         "elixir",
