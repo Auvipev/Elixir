@@ -1,0 +1,57 @@
+{
+    "name": "auvipev/elixir",
+    "description": "Elixir: A guide to writing clean, secure, and reusable PHP code.",
+    "keywords": [
+        "php",
+        "elixir",
+        "secure-by-default"
+    ],
+    "require": {
+        "php": ">=7.2",
+        "guzzlehttp/guzzle": "^6.3",
+        "paragonie/ciphersweet": "^1.1",
+        "paragonie/certainty": "^2.1",
+        "league/oauth2-server": "^7.1",
+        "filp/whoops": "^2.2",
+        "hybridauth/hybridauth": "^3.0",
+        "phpfastcache/phpfastcache": "^6.1",
+        "symfony/dependency-injection": "^4.1",
+        "ext-json": "*",
+        "ext-sodium": "*",
+        "ext-pdo": "*"
+    },
+    "authors": [
+        {
+            "name": "Nicholas English",
+            "email": "nenglish443@outlook.com",
+            "homepage": "https://github.com/Auvipev"
+        },
+        {
+            "name": "Elixir Contributors",
+            "homepage": "https://github.com/Auvipev/Elixir/graphs/contributors"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Auvipev\\Elixir\\": "./src",
+            "Auvipev\\Controllers": "./controllers"
+        },
+        "files": [
+            "./bin/version.php",
+            "./bin/bootstrap.php"
+        ]
+    },
+    "suggest": {
+        "swiftmailer/swiftmailer": "To send emails using SwiftMailer.",
+        "phpmailer/phpmailer": "To send emails using PHPMailer."
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.1",
+        "vimeo/psalm": "^2.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": "true"
+    },
+    "prefer-stable": true
+}
