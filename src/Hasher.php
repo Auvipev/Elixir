@@ -93,8 +93,8 @@ class Hasher implements HasherInterface, InjectableObject
         if (empty($options)) {
             return password_hash(
                 $password,
-                $config['password_hash']['algo'],
-                $config['password_hash']['options']
+                $this->config['password_hash']['algo'],
+                $this->config['password_hash']['options']
             );
         }
         return password_hash(
@@ -146,8 +146,8 @@ class Hasher implements HasherInterface, InjectableObject
         if (empty($options)) {
             return password_needs_rehash(
                 $hash,
-                $config['password_hash']['algo'],
-                $config['password_hash']['options']
+                $this->config['password_hash']['algo'],
+                $this->config['password_hash']['options']
             );
         }
         return password_needs_rehash(
