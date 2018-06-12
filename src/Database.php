@@ -84,7 +84,7 @@ class Database extends Engine implements DatabaseInterface, InjectableObject
                         : null,
                     isset($config['database']['options'])
                         ? $config['database']['options']
-                        : array();
+                        : array()
                 );
             } catch (PDOException $e) {
                 print "VIPERError: " . $e->getMessage() . "<br/>";
@@ -103,7 +103,7 @@ class Database extends Engine implements DatabaseInterface, InjectableObject
                     : null,
                 isset($options['options'])
                     ? $options['options']
-                    : array();
+                    : array()
             );
         } catch (PDOException $e) {
             print "VIPERError: " . $e->getMessage() . "<br/>";
