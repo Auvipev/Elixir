@@ -72,7 +72,7 @@ class Database implements DatabaseInterface, InjectableObject
         if (empty($options)) {
             try {
                 $this->connection = new PDO(
-                    $config['database']['dns'],
+                    $this->config['database']['dns'],
                     isset($this->config['database']['username']) && $this->config['database']['username'] !== ''
                         ? $this->config['database']['username']
                         : null,
