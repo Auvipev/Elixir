@@ -1,4 +1,4 @@
-<?php
+<?phphttps://github.com/Auvipev/Viper/tree/master/src
 declare(strict_types=1);
 /**
  * Viper Content Management System.
@@ -14,8 +14,6 @@ namespace Auvipev\Viper;
 use PDO;
 use PDOStatement;
 use PDOException;
-
-use function die;
 
 /**
  * The database class.
