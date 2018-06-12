@@ -11,7 +11,7 @@ os:
     - windows
     - linux
 before_install:
-    - chmod +x bash/travis/before_script.sh
+    - chmod +x bash/travis/before_install.sh
     - ./bash/travis/before_install.sh
 install:
     - travis_retry composer install --no-interaction
