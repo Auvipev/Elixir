@@ -1,7 +1,6 @@
 language: php
 php:
     - 7.2
-#   - 7.3
     - nightly
 matrix:
     fast_finish: true
@@ -11,9 +10,10 @@ os:
     - windows
     - linux
 before_install:
-    - chmod +x bash/travis/before_install.sh
-    - ./bash/travis/before_install.sh
+    - git clone -b stable https://github.com/jedisct1/libsodium.git
+    - cd libsodium && sudo ./configure && sudo make check && sudo make install && cd ..
 install:
+    - pecl channel-update pecl.php.net
     - pecl install libsodium
     - travis_retry composer install --no-interaction
     - wget -c -nc --retry-connrefused --tries=0 https://github.com/php-coveralls/php-coveralls/releases/download/v2.0.0/php-coveralls.phar
@@ -22,7 +22,8 @@ install:
     - chmod +x bash/travis/before_script.sh
 after_success:
     - travis_retry php php-coveralls.phar -v
-before_script: ./bash/travis/before_script.sh
+before_script:
+    - ./bash/travis/before_script.sh
 script:
     - ./vendor/bin/phpunit --coverage-clover ./build/logs/clover.xml
     - ./vendor/bin/psalm
