@@ -11,8 +11,6 @@ declare(strict_types=1);
 
 namespace Auvipev\Viper;
 
-use function rtrim;
-use function ltrim;
 use function password_hash;
 use function password_verify;
 use function password_needs_rehash;
@@ -92,7 +90,6 @@ class Hasher implements HasherInterface, InjectableObject
      */
     public function hashPassword(string $password, array $options = array()
     {
-        $password = rtrim(ltrim($password));
         if (empty($options)) {
             return password_hash(
                 $password,
@@ -126,7 +123,7 @@ class Hasher implements HasherInterface, InjectableObject
     public function verifyPassword(string $password, string $hash): bool
     {
         return password_verify(
-            rtrim(ltrim($password)),
+            $password,
             $hash
         );
     }
