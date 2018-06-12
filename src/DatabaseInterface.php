@@ -37,7 +37,7 @@ interface DatabaseInterface
      *
      * @return object Returns itself.
      */
-    public function open(array $options = array()): object;
+    public function open(array $options = array());
 
     /**
      * Process a new statement.
