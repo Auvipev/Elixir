@@ -144,7 +144,7 @@ class Database extends Engine implements DatabaseInterface, InjectableObject
         }
         if ($stmt->execute()) {
             if ($options['alias'] === 'select') {
-                return $stmt->fetchAll($options['fetch_mode'])
+                return $stmt->fetchAll($options['fetch_mode']);
             }
             return true;
         }
