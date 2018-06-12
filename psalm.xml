@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<psalm name="Viper Analysis Tests"
+<psalm name="Viper-Engine Analysis Tests"
        useDocblockTypes="true"
        totallyTyped="true">
     <projectFiles>
