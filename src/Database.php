@@ -67,20 +67,20 @@ class Database implements DatabaseInterface, InjectableObject
      *
      * @return object Returns itself.
      */
-    public function open(array $options = array()): object
+    public function open(array $options = array())
     {
         if (empty($options)) {
             try {
                 $this->connection = new PDO(
                     $config['database']['dns'],
-                    isset($config['database']['username']) && $config['database']['username'] !== ''
-                        ? $config['database']['username']
+                    isset($this->config['database']['username']) && $this->config['database']['username'] !== ''
+                        ? $this->config['database']['username']
                         : null,
-                    isset($config['database']['password']) && $config['database']['password'] !== ''
-                        ? $config['database']['password']
+                    isset($this->config['database']['password']) && $this->config['database']['password'] !== ''
+                        ? $this->config['database']['password']
                         : null,
-                    isset($config['database']['options'])
-                        ? $config['database']['options']
+                    isset($this->config['database']['options'])
+                        ? $this->config['database']['options']
                         : array()
                 );
             } catch (PDOException $e) {
@@ -205,7 +205,7 @@ class Database implements DatabaseInterface, InjectableObject
     /**
      * Is the statement a PDO statement?
      *
-     * @return Returns TRUE if the statement is a PDO statement and FALSE if it is not.
+     * @return bool Returns TRUE if the statement is a PDO statement and FALSE if it is not.
      *
      * @param mixed $statement The passed statement.
      *
