@@ -1,0 +1,3 @@
+engines:
+    phpmd:
+        enabled: true
