@@ -33,7 +33,7 @@ class Database implements DatabaseInterface, InjectableObject
     /**
      * @var resource $connection The database connection.
      */
-    private $connection = null;
+    private $connection;
 
     /**
      * @var array $config The configuration.
