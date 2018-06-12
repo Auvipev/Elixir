@@ -90,22 +90,17 @@ class Hasher implements HasherInterface, InjectableObject
      */
     public function hashPassword(string $password, array $options = array())
     {
-        /** @var array $this->config */
-        /** @var array $this->config['password_hash'] */
-        /** @var int $this->config['password_hash']['algo'] */
-        /** @var int $options['algo'] */
-        /** @var array $options['options'] */
         if (empty($options)) {
             return password_hash(
                 $password,
-                $this->config['password_hash']['algo'],
-                $this->config['password_hash']['options']
+                (int) $this->config['password_hash']['algo'],
+                (array) $this->config['password_hash']['options']
             );
         }
         return password_hash(
             $password,
-            $options['algo'],
-            $options['options']
+            (int) $options['algo'],
+            (array) $options['options']
         );
     }
 
