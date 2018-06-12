@@ -65,7 +65,7 @@ class Database implements DatabaseInterface, InjectableObject
      *
      * @catches PDOException Prevents a backtrace from being displayed.
      *
-     * @return object Returns itself.
+     * @return mixed Returns itself.
      */
     public function open(array $options = array())
     {
