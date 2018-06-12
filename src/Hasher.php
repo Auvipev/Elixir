@@ -88,7 +88,7 @@ class Hasher implements HasherInterface, InjectableObject
      *
      * @codeCoverageIgnore.
      */
-    public function hashPassword(string $password, array $options = array()
+    public function hashPassword(string $password, array $options = array())
     {
         if (empty($options)) {
             return password_hash(
