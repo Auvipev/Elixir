@@ -1,6 +1,6 @@
 {
     "name": "auvipev/viper-engine",
-    "description": "Viper: Web engine (Provides basic web functionality) for Viper Content Management System.",
+    "description": "Viper: Web engine for Viper Content Management System.",
     "license": "MIT",
     "keywords": [
         "php",
