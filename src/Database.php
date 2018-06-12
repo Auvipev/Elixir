@@ -1,4 +1,4 @@
-<?phphttps://github.com/Auvipev/Viper/tree/master/src
+<?php
 declare(strict_types=1);
 /**
  * Viper Content Management System.
@@ -24,11 +24,10 @@ use PDOException;
  * @link <https://secure.php.net/manual/en/pdo.prepared-statements.php>.
  *
  * @class      Database.
- * @extends    Engine.
  * @implements DatabaseInterface.
  * @implements InjectableObject.
  */
-class Database extends Engine implements DatabaseInterface, InjectableObject
+class Database implements DatabaseInterface, InjectableObject
 {
 
     /**
