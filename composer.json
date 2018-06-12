@@ -1,6 +1,6 @@
 {
     "name": "auvipev/viper",
-    "description": "Viper: A secure by default content management system.",
+    "description": "Viper: A secure by default content management system (via Engine Management).",
     "license": "MIT",
     "keywords": [
         "php",
