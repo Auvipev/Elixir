@@ -1,5 +1,7 @@
 language: php
 php:
+    - 7.0
+    - 7.1
     - 7.2
     - nightly
 matrix:
@@ -11,7 +13,11 @@ os:
     - linux
 before_install:
     - git clone -b stable https://github.com/jedisct1/libsodium.git
-    - cd libsodium && sudo ./configure && sudo make check && sudo make install && cd ..
+    - cd libsodium
+    - sudo ./configure
+    - sudo make check
+    - sudo make install
+    - cd ..
 install:
     - pecl channel-update pecl.php.net
     - pecl install libsodium
