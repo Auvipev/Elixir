@@ -26,11 +26,10 @@ use function hash_equals;
  * @link <https://secure.php.net/manual/en/ref.password.php>.
  *
  * @class      Hasher.
- * @extends    Engine.
  * @implements HasherInterface.
  * @implements InjectableObject.
  */
-class Hasher extends Engine implements HasherInterface, InjectableObject
+class Hasher implements HasherInterface, InjectableObject
 {
 
     /**
