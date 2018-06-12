@@ -30,7 +30,7 @@
         "paragonie/ciphersweet": "^1.1",
         "paragonie/certainty": "2.1",
         "symfony/polyfill-php71": "^1.8",
-        "symfony/polyfill-php72": "^1.8"
+        "symfony/polyfill-php72": "^1.8",
         "ext-json": "*",
         "ext-pdo": "*",
         "ext-sodium": "*"
