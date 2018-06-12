@@ -20,7 +20,7 @@
          timeoutForLargeTests="40"
          verbose="false">
     <testsuites>
-        <testsuite name="Elixir Test Suite">
+        <testsuite name="Viper Test Suite">
             <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
