@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Auvipev\Viper;
 
 /**
- * The hasher class.
+ * The hasher interface.
  *
  * @link <https://secure.php.net/manual/en/function.hash-equals.php>.
  * @link <https://secure.php.net/manual/en/ref.password.php>.
@@ -52,12 +52,13 @@ interface HasherInterface
      * a maximum length of 72 characters.
      *
      * @param string $password The user's password.
+     * @param array  $options  Alternative options to use.
      *
      * @return mixed Returns the hashed password, or FALSE on failure.
      *
      * @codeCoverageIgnore.
      */
-    public function hashPassword(string $password);
+    public function hashPassword(string $password, array $options = array());
 
     /**
      * Verifies that a password matches a hash.
@@ -83,13 +84,14 @@ interface HasherInterface
      * This function checks to see if the supplied hash implements the algorithm and options provided. If not,
      * it is assumed that the hash needs to be rehashed.
      *
-     * @param string $hash A hash created by $this->hashPassword().
+     * @param string $hash    A hash created by $this->hashPassword().
+     * @param array  $options Alternative options to use.
      *
      * @return bool Returns TRUE if the hash should be rehashed to match the given algo and options, or FALSE otherwise.
      *
      * @codeCoverageIgnore.
      */
-    public function doesNeedRehash(string $hash): bool;
+    public function doesNeedRehash(string $hash, array $options = array()): bool;
 
     /**
      * Returns information about the given hash.
