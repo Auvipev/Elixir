@@ -29,25 +29,6 @@ class Validator extends ValidationObjects implements ValidatorInterface, Injecta
 {
 
     /**
-     * @var array $config The configuration.
-     */
-    private $config;
-
-    /**
-     * Inject any configuration or objct classes for this class.
-     *
-     * @param array $config The configuration.
-     *
-     * @return void Returns nothing.
-     *
-     * @codeCoverageIgnore.
-     */
-    public function __construct(array $config)
-    {
-        $this->config = $config;
-    }
-
-    /**
      * Check to see if the test case is valid against the requested validation object based on
      * any options passed.
      *
