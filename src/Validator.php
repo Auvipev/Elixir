@@ -25,45 +25,8 @@ use function in_array;
  * @implements ValidatorInterface.
  * @implements InjectableObject.
  */
-class Validator implements ValidatorInterface, InjectableObject
+class Validator extends ValidationObjects implements ValidatorInterface, InjectableObject
 {
-
-    /**
-     * @var array $defaultValidationObjects The default validation objects avaliable.
-     */
-    private static $defaultValidationObjects = array(
-        'Empty',
-        'NotEmpty',
-        'Username',
-        'Email',
-        'Pin',
-        'Phone',
-        'Name',
-        'Domain',
-        'Regex',
-        'Country',
-        'Count',
-        'Date',
-        'Ip',
-        'IsNull',
-        'IsFalse',
-        'Ssn',
-        'IsTrue',
-        'Length',
-        'Range',
-        'LessThan',
-        'GreaterThan',
-        'Identical',
-        'NotNull',
-        'Uuid',
-        'TimeZone',
-        'Language',
-        'IsFile',
-        'EqualTo',
-        'NotEqualTo',
-        'IsImage',
-        'Currency'
-    );
 
     /**
      * @var array $config The configuration.
@@ -96,7 +59,7 @@ class Validator implements ValidatorInterface, InjectableObject
      */
     public function isValid(string $validationObject, $testCase = null, array $options = array()): bool
     {
-        if (in_array($validationObject, $this->defaultValidationObjects)) {
+        if (in_array($validationObject, ValidationObjects::$defaultValidationObjects)) {
             $validator = new Validation\$validationObject($options);
             if ($validator->valid($testCase)) {
                 return true;
