@@ -85,9 +85,14 @@ class Validator implements ValidatorInterface, InjectableObject
     }
 
     /**
+     * Check to see if the test case is valid against the requested validation object based on
+     * any options passed.
      *
+     * @param string $validationObject The validation object.
+     * @param mixed  $testCase         The test case (Can be anything).
+     * @param array  $options          Any options to pass.
      *
-     *
+     * @return bool Returns TRUE if th test case passes and FALSE if it does not.
      */
     public function isValid(string $validationObject, $testCase = null, array $options = array()): bool
     {
