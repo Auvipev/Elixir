@@ -41,7 +41,8 @@ class Validator extends ValidationObjects implements ValidatorInterface, Injecta
     public function isValid(string $validationObject, $testCase = null, array $options = array()): bool
     {
         if (in_array($validationObject, ValidationObjects::$defaultValidationObjects)) {
-            $validator = new Validation\$validationObject($options);
+            $validationObject = "Validation\$validationObject";
+            $validator = new $validationObject($options);
             if ($validator->valid($testCase)) {
                 return true;
             }
