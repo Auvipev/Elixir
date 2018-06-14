@@ -11,11 +11,15 @@ declare(strict_types=1);
 
 namespace Auvipev\Viper;
 
+use UnexpectedValueException;
+
 use function is_null;
 use function in_array;
 
 /**
  * The validator class.
+ *
+ * @link <https://secure.php.net/manual/en/class.unexpectedvalueexception.php>.
  *
  * @class      Validator.
  * @implements ValidatorInterface.
