@@ -15,6 +15,8 @@ use function is_null;
 use function in_array;
 use function user_error;
 
+use const E_USER_ERROR;
+
 /**
  * The validator class.
  *
