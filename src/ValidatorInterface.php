@@ -14,8 +14,6 @@ namespace Auvipev\Viper;
 /**
  * The validator interface.
  *
- * @link <https://secure.php.net/manual/en/class.unexpectedvalueexception.php>.
- *
  * @interface ValidatorInterface.
  */
 interface ValidatorInterface
