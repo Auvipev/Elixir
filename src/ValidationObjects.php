@@ -18,4 +18,10 @@ namespace Auvipev\Viper;
  */
 class ValidationObjects
 {
+
+    /**
+     * @var array $defaultValidationObjects The validation object definitions.
+     */
+    protected static $defaultValidationObjects = array(  
+    );
 }
