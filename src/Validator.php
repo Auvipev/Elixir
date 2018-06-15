@@ -20,8 +20,6 @@ use const E_USER_ERROR;
 /**
  * The validator class.
  *
- * @link <https://secure.php.net/manual/en/class.unexpectedvalueexception.php>.
- *
  * @class      Validator.
  * @implements ValidatorInterface.
  * @implements InjectableObject.
