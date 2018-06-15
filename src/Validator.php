@@ -11,10 +11,9 @@ declare(strict_types=1);
 
 namespace Auvipev\Viper;
 
-use UnexpectedValueException;
-
 use function is_null;
 use function in_array;
+use function user_error;
 
 /**
  * The validator class.
@@ -48,6 +47,9 @@ class Validator extends ValidationObjects implements ValidatorInterface, Injecta
             }
             return false;
         }
-        throw new UnexpectedValueException('The validation object requested does not exist or is no longer supported.');
+        user_error(
+            'The validation object requested does not exist or is no longer supported.',
+            E_USER_ERROR
+        );
     }
 }
