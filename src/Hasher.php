@@ -17,6 +17,8 @@ use function password_needs_rehash;
 use function password_get_info;
 use function hash_equals;
 
+use const PASSWORD_DEFAULT;
+
 /**
  * The hasher class.
  *
@@ -83,22 +85,20 @@ class Hasher implements HasherInterface, InjectableObject
      * @param array  $options  Alternative options to use.
      *
      * @return mixed Returns the hashed password, or FALSE on failure.
-     *
-     * @codeCoverageIgnore.
      */
     public function hashPassword(string $password, array $options = array())
     {
         if (empty($options)) {
             return password_hash(
                 $password,
-                (int) $this->config['password_hash']['algo'],
-                (array) $this->config['password_hash']['options']
+                $this->config['password_hash']['algo'],
+                $this->config['password_hash']['options']
             );
         }
         return password_hash(
             $password,
-            (int) $options['algo'],
-            (array) $options['options']
+            isset($options['algo']) ? $options['algo'] : PASSWORD_DEFAULT,
+            isset($options['options']) ? $options['options'] : array()
         );
     }
 
@@ -115,8 +115,6 @@ class Hasher implements HasherInterface, InjectableObject
      * @param string $hash     A hash created by $this->hashPassword().
      *
      * @return bool Returns TRUE if the password and hash match, or FALSE otherwise.
-     *
-     * @codeCoverageIgnore.
      */
     public function verifyPassword(string $password, string $hash): bool
     {
@@ -136,8 +134,6 @@ class Hasher implements HasherInterface, InjectableObject
      * @param array  $options Alternative options to use.
      *
      * @return bool Returns TRUE if the hash should be rehashed to match the given algo and options, or FALSE otherwise.
-     *
-     * @codeCoverageIgnore.
      */
     public function doesNeedRehash(string $hash, array $options = array()): bool
     {
@@ -150,8 +146,8 @@ class Hasher implements HasherInterface, InjectableObject
         }
         return password_needs_rehash(
             $hash,
-            $options['algo'],
-            $options['options']
+            isset($options['algo']) ? $options['algo'] : PASSWORD_DEFAULT,
+            isset($options['options']) ? $options['options'] : array()
         );
     }
 
@@ -167,8 +163,6 @@ class Hasher implements HasherInterface, InjectableObject
      *               - algo, which will match a password algorithm constant.
      *               - algoName, which has the human readable name of the algorithm.
      *               - options, which includes the options provided when calling $this->hashPassword().
-     *
-     * @codeCoverageIgnore.
      */
     public function getPasswordHashInfo(string $hash): array
     {
