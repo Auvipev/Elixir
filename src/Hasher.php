@@ -43,8 +43,6 @@ class Hasher implements HasherInterface, InjectableObject
      * @param array $config The configuration.
      *
      * @return void Returns nothing.
-     *
-     * @codeCoverageIgnore.
      */
     public function __construct(array $config)
     {
