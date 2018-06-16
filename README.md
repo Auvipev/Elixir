@@ -4,3 +4,5 @@
 [![Coverage Status](https://coveralls.io/repos/github/Auvipev/Viper-Engine/badge.svg?branch=master)](https://coveralls.io/github/Auvipev/Viper-Engine?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/auvipev/viper-engine/v/stable)](https://packagist.org/packages/auvipev/viper-engine)
 [![Latest Unstable Version](https://poser.pugx.org/auvipev/viper-engine/v/unstable)](https://packagist.org/packages/auvipev/viper-engine)
+
+> The first release will be avaliable at 7.21.2018
