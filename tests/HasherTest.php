@@ -36,20 +36,31 @@ class HasherTest extends TestCase
             )
         ));
         $generatedHashA = $hasher->hashPassword('Hello World!');
-        $generatedHashB = $hasher->hashPassword('Hello World!');
-        $generatedHashC = $hasher->hashPassword('Hello Tom!');
+        $generatedHashB = $hasher->hashPassword('Hello World!', array(
+            'algo' => PASSWORD_BCRYPT,
+            'options' => array(
+                'cost' => 10
+            )
+        ));
         $testHashA = md5('Hello World!');
         $testHashB = md5('Hello World!');
         $testHashC = md5('Hello Tom!');
         $this->assertTrue($hasher->verifyHash($testHashA, $testHashB));
         $this->assertTrue(!$hasher->verifyHash($testHashB, $testHashC));
-        $this->assertTrue($hasher->verifyPassword($generatedHashA, $generatedHashB));
-        $this->assertTrue(!$hasher->verifyPassword($generatedHashB, $generatedHashC));
+        $this->assertTrue($hasher->verifyPassword('Hello World!', $generatedHashA));
+        $this->assertTrue(!$hasher->verifyPassword('Hello Tom!', $generatedHashA));
         $this->assertEquals($hasher->getPasswordHashInfo($generatedHashA), array(
             'algo' => PASSWORD_BCRYPT,
             'algoName' => 'bcrypt',
             'options' => array(
                 'cost' => 11
+            )
+        ));
+        $this->assertTrue($hasher->doesNeedRehash($generatedHashB));
+        $this->assertTrue($hasher->doesNeedRehash($generatedHashA), array(
+            'algo' => PASSWORD_BCRYPT,
+            'options' => array(
+                'cost' => 10
             )
         ));
     }
