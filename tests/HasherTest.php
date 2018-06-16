@@ -25,7 +25,7 @@ class HasherTest extends TestCase
 
     public function testHashVerify()
     {
-        $hasher = new Hasher();
+        $hasher = new Hasher(array());
         $testHashA = md5('Hello World!');
         $testHashB = md5('Hello World!');
         $testHashC = md5('Hello Tom!');
