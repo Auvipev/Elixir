@@ -41,8 +41,8 @@ class HasherTest extends TestCase
         $testHashA = md5('Hello World!');
         $testHashB = md5('Hello World!');
         $testHashC = md5('Hello Tom!');
-        $this->assertTrue($hasher->verify($testHashA, $testHashB));
-        $this->assertTrue(!$hasher->verify($testHashB, $testHashC));
+        $this->assertTrue($hasher->verifyHash($testHashA, $testHashB));
+        $this->assertTrue(!$hasher->verifyHash($testHashB, $testHashC));
         $this->assertTrue($hasher->verifyPassword($generatedHashA, $generatedHashB));
         $this->assertTrue(!$hasher->verifyPassword($generatedHashB, $generatedHashC));
         $this->assertEquals($hasher->getPasswordHashInfo($generatedHashA), array(
