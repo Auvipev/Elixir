@@ -58,8 +58,6 @@ class Hasher implements HasherInterface, InjectableObject
      * @param string $hashB The second hash.
      *
      * @return bool Returns TRUE when the two strings are equal, FALSE otherwise.
-     *
-     * @codeCoverageIgnore.
      */
     public function verifyHash(string $hashA, string $hashB): bool
     {
