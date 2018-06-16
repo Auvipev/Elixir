@@ -1,6 +1,6 @@
 {
     "name": "auvipev/viper-engine",
-    "description": "Web engine for Viper Content Management System.",
+    "description": "Viper: A secure by default web engine making websites easy to build.",
     "license": "MIT",
     "keywords": [
         "php",
