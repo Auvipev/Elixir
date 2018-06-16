@@ -57,11 +57,11 @@ class HasherTest extends TestCase
             )
         ));
         $this->assertTrue($hasher->doesNeedRehash($generatedHashB));
-        $this->assertTrue($hasher->doesNeedRehash($generatedHashA), array(
+        $this->assertTrue($hasher->doesNeedRehash($generatedHashA, array(
             'algo' => PASSWORD_BCRYPT,
             'options' => array(
                 'cost' => 10
             )
-        ));
+        )));
     }
 }
