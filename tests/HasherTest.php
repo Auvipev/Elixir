@@ -9,9 +9,8 @@ declare(strict_types=1);
  * @package Viper.
  */
 
-namespace Auvipev\Viper\Tests;
+namespace Auvipev\Viper;
 
-use Auvipev\Viper\Hasher;
 use PHPUnit\Framework\TestCase;
 
 use function md5;
