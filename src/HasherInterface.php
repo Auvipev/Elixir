@@ -53,8 +53,6 @@ interface HasherInterface
      * @param array  $options  Alternative options to use.
      *
      * @return mixed Returns the hashed password, or FALSE on failure.
-     *
-     * @codeCoverageIgnore.
      */
     public function hashPassword(string $password, array $options = array());
 
@@ -71,8 +69,6 @@ interface HasherInterface
      * @param string $hash     A hash created by $this->hashPassword().
      *
      * @return bool Returns TRUE if the password and hash match, or FALSE otherwise.
-     *
-     * @codeCoverageIgnore.
      */
     public function verifyPassword(string $password, string $hash): bool;
 
@@ -86,8 +82,6 @@ interface HasherInterface
      * @param array  $options Alternative options to use.
      *
      * @return bool Returns TRUE if the hash should be rehashed to match the given algo and options, or FALSE otherwise.
-     *
-     * @codeCoverageIgnore.
      */
     public function doesNeedRehash(string $hash, array $options = array()): bool;
 
@@ -103,8 +97,6 @@ interface HasherInterface
      *               - algo, which will match a password algorithm constant.
      *               - algoName, which has the human readable name of the algorithm.
      *               - options, which includes the options provided when calling $this->hashPassword().
-     *
-     * @codeCoverageIgnore.
      */
     public function getPasswordHashInfo(string $hash): array;
 }
