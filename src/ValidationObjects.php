@@ -22,6 +22,8 @@ class ValidationObjects
     /**
      * @var array $defaultValidationObjects The validation object definitions.
      */
-    protected static $defaultValidationObjects = array(  
+    protected static $defaultValidationObjects = array(
+        'NotEmpty',
+        'Empty'
     );
 }
