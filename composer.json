@@ -38,7 +38,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Viper\\Engine\\": "./src"
+            "Auvipev\\Viper\\": "./src"
         },
         "files": [
             "./bin/version.php",
