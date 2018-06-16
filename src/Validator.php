@@ -21,6 +21,7 @@ use const E_USER_ERROR;
  * The validator class.
  *
  * @class      Validator.
+ * @extends    ValidationObjects.
  * @implements ValidatorInterface.
  * @implements InjectableObject.
  */
