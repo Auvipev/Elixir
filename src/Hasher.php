@@ -95,8 +95,12 @@ class Hasher implements HasherInterface, InjectableObject
         }
         return password_hash(
             $password,
-            isset($options['algo']) ? $options['algo'] : PASSWORD_DEFAULT,
-            isset($options['options']) ? $options['options'] : array()
+            isset($options['algo'])
+                ? $options['algo']
+                : PASSWORD_DEFAULT,
+            isset($options['options'])
+                ? $options['options']
+                : array()
         );
     }
 
@@ -144,8 +148,12 @@ class Hasher implements HasherInterface, InjectableObject
         }
         return password_needs_rehash(
             $hash,
-            isset($options['algo']) ? $options['algo'] : PASSWORD_DEFAULT,
-            isset($options['options']) ? $options['options'] : array()
+            isset($options['algo'])
+                ? $options['algo'] 
+                : PASSWORD_DEFAULT,
+            isset($options['options'])
+                ? $options['options']
+                : array()
         );
     }
 
