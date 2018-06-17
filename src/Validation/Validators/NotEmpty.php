@@ -31,6 +31,11 @@ class NotEmpty implements ValidatorObjectInterface
     private $checkAgainstDiffDataTypes;
 
     /**
+     * @var bool $checkAgainstIntDataTypes Should we check int data types.
+     */
+    private $checkAgainstIntDataTypes;
+
+    /**
      * Consturct the validation object.
      *
      * @param array $options The options array.
@@ -41,6 +46,9 @@ class NotEmpty implements ValidatorObjectInterface
     {
         $this->checkAgainstDiffDataTypes = isset($options['mixed_data_types'])
             ? $options['mixed_data_types']
+            : true;
+        $this->checkAgainstIntDataTypes  = isset($options['int_data_types'])
+            ? $options['int_data_types']
             : true;
     }
 
@@ -56,7 +64,7 @@ class NotEmpty implements ValidatorObjectInterface
         if ($this->checkAgainstDiffDataTypes) {
             if (is_null($testCase)) {
                 return false;
-            } elseif ($testCase === 0) {
+            } elseif ($testCase === 0 && $this->checkAgainstIntDataTypes) {
                 return false;
             } else {
                 /** Mixed Data Type Validation Complete. */
