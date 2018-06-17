@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @package Viper.
  */
 
-namespace Auvipev\Viper;
+namespace Auvipev\Viper\Validation;
 
 /**
  * The validation object interface.
