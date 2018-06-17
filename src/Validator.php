@@ -36,7 +36,7 @@ class Validator extends ValidationObjects implements ValidatorInterface, Injecta
      * @param mixed  $testCase         The test case (Can be anything).
      * @param array  $options          Any options to pass.
      *
-     * @return bool Returns TRUE if th test case passes and FALSE if it does not.
+     * @return bool Returns TRUE if the test case passes and FALSE if it does not.
      */
     public function isValid(string $validationObject, $testCase = null, array $options = array()): bool
     {
