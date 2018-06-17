@@ -24,6 +24,6 @@ class ValidationObjects
      */
     protected static $defaultValidationObjects = array(
         'NotEmpty',
-        'Empty'
+        'IsEmpty'
     );
 }
