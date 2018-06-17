@@ -58,7 +58,7 @@ class Empty implements ValidatorObjectInterface
      */
     public function valid($testCase): bool
     {
-        return (new NotEmpty(array(
+        return ! (new NotEmpty(array(
             'mixed_data_types' => $this->checkAgainstDiffDataTypes,
             'int_data_types'   => $this->checkAgainstIntDataTypes
         )))->valid($testCase);
