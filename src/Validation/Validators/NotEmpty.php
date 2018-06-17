@@ -39,8 +39,8 @@ class NotEmpty implements ValidatorObjectInterface
      */
     public function __construct(array $options = array())
     {
-        $this->checkAgainstDiffDataTypes = isset($options['check_different_data_types'])
-            ? $options['check_different_data_types']
+        $this->checkAgainstDiffDataTypes = isset($options['mixed_data_types'])
+            ? $options['mixed_data_types']
             : true;
     }
 
