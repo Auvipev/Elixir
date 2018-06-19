@@ -37,6 +37,4 @@ cache:
         - vendor
         - $HOME/.cache/composer
  notifications:
-    email:
-        on_success: never
-        on_failure: always
+     email: false
