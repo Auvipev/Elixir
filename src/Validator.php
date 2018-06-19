@@ -20,6 +20,8 @@ use const E_USER_ERROR;
 /**
  * The validator class.
  *
+ * @link <https://secure.php.net/manual/en/function.trigger-error.php>.
+ *
  * @class      Validator.
  * @extends    ValidationObjects.
  * @implements ValidatorInterface.
