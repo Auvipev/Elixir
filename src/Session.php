@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Auvipev\Viper;
 
 use function trim;
+use function session_start;
 use function session_status;
 
 use const PHP_SESSION_ACTIVE;
