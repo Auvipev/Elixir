@@ -22,7 +22,7 @@ use const PHP_SESSION_ACTIVE;
  *
  * @link <https://secure.php.net/manual/en/session.security.php>.
  * @link <https://secure.php.net/manual/en/ref.session.php>.
- * @link <>.
+ * @link <https://secure.php.net/manual/en/class.sessionhandlerinterface.php>.
  *
  * @class      Session. 
  * @implements SessionInterface.
