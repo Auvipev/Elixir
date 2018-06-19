@@ -28,6 +28,7 @@
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./src</directory>
             <exclude>
+                <directory>./libsodium</directory>
                 <directory>./vendor</directory>
                 <directory>./build</directory>
                 <directory>./bash</directory>
