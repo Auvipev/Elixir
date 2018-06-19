@@ -61,9 +61,9 @@ class Session implements SessionInterface, InjectableObject
     public function start(string $name, $handler, bool $encrypt = true, array $options = array()): bool
     {
         if (self::exists) {
-            return true;
+            throw new Exception\SessionStartException('A session is already running.');
         }
-        session_start();
+        return session_start();
         self::$encrypt = $encrypt;
     }
 }
