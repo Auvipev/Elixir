@@ -36,5 +36,3 @@ cache:
     directories:
         - vendor
         - $HOME/.cache/composer
- notifications:
-     email: false
