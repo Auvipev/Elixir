@@ -41,11 +41,13 @@ class Validator extends ValidationObjects implements ValidatorInterface, Injecta
     public function isValid(string $validationObject, $testCase = null, array $options = array()): bool
     {
         if (in_array($validationObject, static::$defaultValidationObjects)) {
-            $validator = new Validation\Validators\$validationObject($options);
-            if ($validator->valid($testCase)) {
-                return true;
+            if (strcmp(strtolower($validationObject), 'notempty') === 0) {
+                $validator = new Validation\Validators\NotEmpty($options); 
             }
-            return false;
+            if (strcmp(strtolower($validationObject), 'isempty') === 0) {
+                $validator = new Validation\Validators\IsEmpty($options);
+            }
+            return $validator->valid($testCase);
         }
         user_error(
             'The validation object requested does not exist or is no longer supported.',
