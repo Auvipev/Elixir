@@ -42,5 +42,17 @@ class ValidatorTest extends TestCase
         $this->assertTrue($validator->isValid('IsEmpty', $testCaseD));
         $this->assertTrue(!$validator->isValid('IsEmpty', $testCaseE));
         $this->assertTrue(!$validator->isValid('IsEmpty', $testCaseF));
+        $this->assertTrue(!$validator->isValid('NotEmpty', $testCaseA, array()));
+        $this->assertTrue(!$validator->isValid('NotEmpty', $testCaseB, array()));
+        $this->assertTrue(!$validator->isValid('NotEmpty', $testCaseC, array()));
+        $this->assertTrue(!$validator->isValid('NotEmpty', $testCaseD, array()));
+        $this->assertTrue($validator->isValid('NotEmpty', $testCaseE, array()));
+        $this->assertTrue($validator->isValid('NotEmpty', $testCaseF, array()));
+        $this->assertTrue($validator->isValid('IsEmpty', $testCaseA, array()));
+        $this->assertTrue($validator->isValid('IsEmpty', $testCaseB, array()));
+        $this->assertTrue($validator->isValid('IsEmpty', $testCaseC, array()));
+        $this->assertTrue($validator->isValid('IsEmpty', $testCaseD, array()));
+        $this->assertTrue(!$validator->isValid('IsEmpty', $testCaseE, array()));
+        $this->assertTrue(!$validator->isValid('IsEmpty', $testCaseF, array()));
     }
 }
