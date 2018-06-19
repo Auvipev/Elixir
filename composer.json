@@ -1,6 +1,6 @@
 {
     "name": "auvipev/viper-engine",
-    "description": "🐍 Viper: A secure by default web engine made with 💗 by Nicholas.",
+    "description": "A secure by default web engine.",
     "license": "MIT",
     "keywords": [
         "php",
