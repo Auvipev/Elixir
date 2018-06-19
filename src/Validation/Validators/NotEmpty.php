@@ -70,8 +70,10 @@ class NotEmpty implements ValidatorObjectInterface
                 /** Mixed Data Type Validation Complete. */
             }
         }
-        if ((string) trim($testCase) === '' || empty((string) trim($testCase))) {
-            return false;
+        if (is_string($testCase)) {
+            if (trim($testCase) === '' || empty(trim($testCase))) {
+                return false;
+            }
         }
         return true;
     }
