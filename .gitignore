@@ -1,3 +1,10 @@
 /composer.lock
 /composer.phar
 /vendor/
+
+/php-coveralls.phar
+/build/
+
+/bash/
+
+/libsodium/
