@@ -21,6 +21,15 @@ use PHPUnit\Framework\TestCase;
 class ValidatorTest extends TestCase
 {
 
+    /**
+     * @expectedException PHPUnit\Framework\Error\Error
+     */
+    public function testUserError()
+    {
+        $validator = new Validator();
+        $this->assertTrue($validator->isValid('ValidationObjectThatDoesNotExist', null));
+    }
+
     public function testValidator()
     {
         $validator = new Validator();
