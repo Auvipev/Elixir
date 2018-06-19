@@ -1,1 +1,3 @@
-/docs/ export-ignore
+/build/ export-ignore
+/bash/ export-ignore
+/libsodium/ export-ignore
