@@ -31,6 +31,22 @@ class Validator extends ValidationObjects implements ValidatorInterface, Injecta
 {
 
     /**
+     * @var array $config The configuration.
+     */
+    private $config;
+    /**
+     * Inject any configuration or objct classes for this class.
+     *
+     * @param array $config The configuration.
+     *
+     * @return void Returns nothing.
+     */
+    public function __construct(array $config)
+    {
+        $this->config = $config;
+    }
+
+    /**
      * Check to see if the test case is valid against the requested validation object based on
      * any options passed.
      *
@@ -42,15 +58,20 @@ class Validator extends ValidationObjects implements ValidatorInterface, Injecta
      */
     public function isValid(string $validationObject, $testCase = null, array $options = array()): bool
     {
+        if (isset($this->config['validator']['exclude_validation_objects']) && in_array($validationObject, $this->config['validator']['exclude_validation_objects'])) {
+            goto skip;
+        }
+        $validationObject = strtolower($validationObject);
         if (in_array($validationObject, static::$defaultValidationObjects)) {
-            if (strcmp(strtolower($validationObject), 'notempty') === 0) {
+            if (strcmp($validationObject, 'notempty') === 0) {
                 $validator = new Validation\Validators\NotEmpty($options); 
             }
-            if (strcmp(strtolower($validationObject), 'isempty') === 0) {
+            if (strcmp($validationObject, 'isempty') === 0) {
                 $validator = new Validation\Validators\IsEmpty($options);
             }
             return $validator->valid($testCase);
         }
+        skip:
         user_error(
             'The validation object requested does not exist or is no longer supported.',
             E_USER_ERROR
