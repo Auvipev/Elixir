@@ -30,9 +30,25 @@ class ValidatorTest extends TestCase
         $this->assertTrue($validator->isValid('ValidationObjectThatDoesNotExist', null));
     }
 
+    /**
+     * @expectedException PHPUnit\Framework\Error\Error
+     */
+    public function testSkipVerification()
+    {
+        $validator = new Validator([
+            'validation' => [
+                'exclude_validation_objects' => [
+                    'NotEmpty',
+                    'IsEmpty'
+                ]
+            ]
+        ]);
+        $this->assertTrue($validator->isValid('IsEmpty', null));
+    }
+
     public function testValidator()
     {
-        $validator = new Validator();
+        $validator = new Validator([]);
         $testCaseA = '';
         $testCaseB = ' ';
         $testCaseC = 0;
