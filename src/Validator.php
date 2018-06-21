@@ -68,8 +68,8 @@ class Validator extends ValidationObjects implements ValidatorInterface, Injecta
                 }
             }
         }
-        $validationObject = strtolower($validationObject);
         if (in_array($validationObject, static::$defaultValidationObjects)) {
+            $validationObject = strtolower($validationObject);
             if (strcmp($validationObject, 'notempty') === 0) {
                 $validator = new Validation\Validators\NotEmpty($options); 
             }
