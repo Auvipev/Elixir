@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace Auvipev\Viper;
 
-use function is_null;
+use function array_key_exists;
 use function in_array;
 use function user_error;
 use function strtolower;
