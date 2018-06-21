@@ -16,7 +16,6 @@ use function in_array;
 use function user_error;
 use function strtolower;
 use function strcmp;
-use function in_array;
 
 use const E_USER_ERROR;
 
