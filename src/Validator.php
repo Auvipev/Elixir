@@ -59,7 +59,7 @@ class Validator extends ValidationObjects implements ValidatorInterface, Injecta
      */
     public function isValid(string $validationObject, $testCase = null, array $options = array()): bool
     {
-        if (!is_null($this->config['validation']['exclude_validation_objects']) && isset($this->config['validation']['exclude_validation_objects']) && in_array($validationObject, $this->config['validator']['exclude_validation_objects'])) {
+        if (isset($this->config['validation']['exclude_validation_objects']) && $this->config['validation']['exclude_validation_objects'] && in_array($validationObject, $this->config['validator']['exclude_validation_objects'])) {
             goto skip;
         }
         $validationObject = strtolower($validationObject);
