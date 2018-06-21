@@ -36,4 +36,9 @@ class DatabaseTest extends TestCase
         ]);
         return $this->createDefaultDBConnection($pdo, ':memory:');
     }
+
+    public function getDataSet()
+    {
+        return $this->createFlatXmlDataSet('bin/dataset.xml');
+    }
 }
