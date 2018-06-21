@@ -26,7 +26,7 @@ class ValidatorTest extends TestCase
      */
     public function testUserError()
     {
-        $validator = new Validator();
+        $validator = new Validator([]);
         $this->assertTrue($validator->isValid('ValidationObjectThatDoesNotExist', null));
     }
 
